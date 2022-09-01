@@ -4,7 +4,7 @@ from fastapi import FastAPI
 import pickle
 from model import IrisModel, IrisSpecies
 
-import requests
+
 
 # 2. Create the app object
 app = FastAPI()
@@ -15,18 +15,6 @@ model = IrisModel()
 def index():
     return {'message': 'Hello, stranger'}
 
-
-headers = {
-   'accept': 'application/json',
-   'Content-Type': 'application/json',
- 
-}
-url = 'https://apiedengit.azurewebsites.net'
-data = '{"sepal_length": 6.2,"sepal_width": 3.4,"petal_length": 5.4,"petal_width": 2.3}'
-response = requests.get(url, headers=headers, data=data)
-response.text
-Result: '{"prediction":"virginica","probability":0.97}'
-headers 
 
 # 4. Expose the prediction functionality, make a prediction from the passed
 #    JSON data and return the predicted flower species with the confidence
